@@ -19,7 +19,6 @@ class StockApp < Sinatra::Application
 
   get "/logout" do
     session[:user] = nil
-    flash[:notice] = 'You have been signed out.'
     redirect '/login'
   end
 
