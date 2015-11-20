@@ -4,7 +4,7 @@
     %meta{:charset => "utf-8"}/
     %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
     %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
-    %title Stock
+    %title Eskom Stock Dashboard
 
     %link{:type => "text/css", :href => "/css/bootstrap.min.css", :rel => "stylesheet"}
     %link{:href => "/css/stock/sb-admin-2.css", :rel => "stylesheet"}
@@ -14,9 +14,18 @@
     %link{:type => 'text/css', rel: 'stylesheet', href: '/css/stock.css'}
     %link{:type => 'text/css', rel: 'stylesheet', href: '/css/stock/spinner.css'}
 
-    %script{:src => "/js/jquery.min.js"}
+    / jQuery
+    %script{:src => "./bower_components/jquery/dist/jquery.min.js"}
+    / Bootstrap Core JavaScript
+    %script{:src => "./bower_components/bootstrap/dist/js/bootstrap.min.js"}
+    / Metis Menu Plugin JavaScript
+    %script{:src => "./bower_components/metisMenu/dist/metisMenu.min.js"}
+    / Custom Theme JavaScript
+    %script{:src => "./js/application/sb-admin-2.js"}
+
+    -#%script{:src => "/js/jquery.min.js"}
     %script{:src => '/js/jquery.dataTables.min.js'}
-    %script{:src => "/js/bootstrap.min.js"}
+    -#%script{:src => "/js/bootstrap.min.js"}
     %script{:src => '/js/dataTables.bootstrap.js'}
     %script{:src => '/js/base.min.js'}
     %script{:src => '/js/knockout/knockout-3.1.0.js'}

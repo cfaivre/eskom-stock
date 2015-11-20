@@ -8,7 +8,7 @@
       %span.icon-bar
       %span.icon-bar
       %span.icon-bar
-    %a.navbar-brand{:href => "/stock_takes"} Eskom Stock Admin
+    %a.navbar-brand{:href => "/stock_takes"} Eskom Stock Dashboard
   / /.navbar-header
   %ul.nav.navbar-top-links.navbar-right
     %li.dropdown
@@ -49,13 +49,17 @@
             %i.fa.fa-bar-chart
             Stock Level Reports
         %li
-          %a{:href => "/warehouses"}
+          %a{:href => "#"}
             %i.fa.fa-home
-            Warehouses
-        %li
-          %a{:href => "/cncs"}
-            %i.fa.fa-home
-            CNCs
+              Locations
+            %span.fa.arrow
+          %ul.nav.nav-second-level
+            %li
+              %a{:href => "/warehouses"}
+                Warehouses
+            %li
+              %a{:href => "/cncs"}
+                CNCs
         %li
           %a{:href => "/item_types"}
             %i.fa.fa-list

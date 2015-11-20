@@ -13,13 +13,19 @@
           %i.fa.fa-bar-chart
           Stock Level Reports
       %li
-        %a{:href => "/warehouses"}
+        %a{:href => "#"}
           %i.fa.fa-home
-          Warehouses
-      %li
-        %a{:href => "/cncs"}
-          %i.fa.fa-home
-          CNCs
+            Locations
+          %span.fa.fa-arrow
+        %ul.nav.nav-second-level
+          %li
+            %a{:href => "/warehouses"}
+              %i.fa.fa-home
+              Warehouses
+          %li
+            %a{:href => "/cncs"}
+              %i.fa.fa-home
+              CNCs
       %li
         %a{:href => "/item_types"}
           %i.fa.fa-list

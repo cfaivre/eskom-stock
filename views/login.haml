@@ -6,7 +6,7 @@
         %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}
           %meta{:content => "", :name => "description"}
             %meta{:content => "", :name => "author"}
-              %title Eskom - Tracking Stock
+              %title Log in to Eskom Stock
               / Bootstrap Core CSS
               %link{:href => "./bower_components/bootstrap/dist/css/bootstrap.min.css", :rel => "stylesheet"}
                 / MetisMenu CSS
@@ -32,20 +32,20 @@
               %img{:src => "/img/eskom.png", style:'display:inline-text;', height: 33, width:180}
           .login-panel.panel.panel-default
             .panel-heading
-              %h3.panel-title Please Sign In
+              %h3.panel-title Log in to Eskom Stock
             .panel-body
               %form{:action => "/login", :method => "post", :role => "form"}
                 %fieldset
                   .form-group
-                    %input.form-control{:autofocus => "", :name => "username", :placeholder => "User / Location", :required => "required"}
+                    %input.form-control{:autofocus => "", :name => "username", :placeholder => "Username", :required => "required"}
                   .form-group
                     %input.form-control{:name => "password", :placeholder => "Password", :required => "required", :type => "password", :value => ""}
-                  <input class="btn btn-primary btn-block" type='submit', value=Login>
+                  <input class="btn btn-primary btn-block" type='submit', value='Log In'>
     / jQuery
-    %script{:src => "./bower_components/jquery/dist/jquery.min.js"}
+    -#%script{:src => "./bower_components/jquery/dist/jquery.min.js"}
     / Bootstrap Core JavaScript
-    %script{:src => "./bower_components/bootstrap/dist/js/bootstrap.min.js"}
+    -#%script{:src => "./bower_components/bootstrap/dist/js/bootstrap.min.js"}
     / Metis Menu Plugin JavaScript
-    %script{:src => "./bower_components/metisMenu/dist/metisMenu.min.js"}
+    -#%script{:src => "./bower_components/metisMenu/dist/metisMenu.min.js"}
     / Custom Theme JavaScript
-    %script{:src => "./js/application/sb-admin-2.js"}
+    -#%script{:src => "./js/application/sb-admin-2.js"}
