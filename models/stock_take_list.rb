@@ -7,7 +7,7 @@ class StockTakeListModel
   def load_stock_takes
     viewmodel = StockTakeListViewModel.new
     stock_takes = StockApiClient.new.get_stock_takes
-    stock_takes.sort_by! { |stock_take| stock_take[:created_at] } unless stock_takes.empty?
+    stock_takes.sort_by! { |stock_take| stock_take[:created_at] }.reverse! unless stock_takes.empty?
     stock_takes.each{|stock_take|
       if !File.exist?( File.join(File.dirname(__FILE__), "/../public/pdfs/#{stock_take[:_id]}.pdf") )
         generate_pdf( stock_take[:_id], stock_take[:created_at], stock_take[:stats] )
