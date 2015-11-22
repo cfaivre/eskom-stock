@@ -46,9 +46,11 @@
                     %a{"data-bind" => "text: created_at(), click: function() { $root.displayStats( stats() ); }"}
                   %td
                     -#%i.fa.fa-pie-chart{"data-bind" => "click: function() { $root.displayStatsChart( stats() ); }"}
-                    %a{ href: '' }
+                    %a{ href: '', "data-bind" => "click: function() { $root.emailStats( _id(), created_at() ); }"} EMAIL&nbsp;&nbsp;
+                    %a{ rel: "nofollow", "data-bind"=> ":attr: { 'target': '_blank', 'href': '/pdfs/'+ _id() + '.pdf' }"} PDF
+                    -#%a{ href: '' }
                       %i.fa.fa-envelope{"data-bind" => "click: function() { $root.emailStats( _id(), created_at() ); }"}
-                    %a{ rel: "nofollow", "data-bind"=> ":attr: { 'target': '_blank', 'href': '/pdfs/'+ _id() + '.pdf' }"}
+                    -#%a{ rel: "nofollow", "data-bind"=> ":attr: { 'target': '_blank', 'href': '/pdfs/'+ _id() + '.pdf' }"}
                       %i.fa.fa-download
 
   -#.row
