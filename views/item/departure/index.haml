@@ -41,7 +41,6 @@
             %table#dataTables-example.table.table-striped.table-bordered.table-hover
               %thead
                 %tr
-                  %th RFID
                   %th Serial Number
                   %th Location
                   %th Storage Location
@@ -50,7 +49,6 @@
               %tbody{"data-bind" => "foreach: items()"}
                 %tr.data-row{"data-toggle" => "context"}
                   %td{"data-bind" => "text: rfid()"}
-                  %td{"data-bind" => "text: serial_number()"}
                   %td{"data-bind" => "text: location()"}
                   %td{"data-bind" => "text: storage_location()"}
                   %td{"data-bind" => "text: date()"}

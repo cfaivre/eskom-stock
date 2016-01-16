@@ -15,17 +15,17 @@
               %thead
                 %tr
                   %th Serial Number
-                  %th RFID
                   %th Location
-                  %th Manufacturing Date
+                  %th Manufacture Date
+                  %th Expire Date
                   %th PO Number
                   %th SAP Number
               %tbody{"data-bind" => "foreach: items()"}
                 %tr.data-row{"data-toggle" => "context"}
-                  %td{"data-bind" => "text: serial_number()"}
                   %td{"data-bind" => "text: rfid()"}
                   %td{"data-bind" => "text: location()"}
-                  %td{"data-bind" => "text: date()"}
+                  %td{"data-bind" => "text: manufacture_date()"}
+                  %td{"data-bind" => "text: expire_date()"}
                   %td{"data-bind" => "text: purchase_order_number()"}
                   %td
                     %a{"data-bind" => "text: sap_number(), :attr: { 'href': '/items?sap_number=' + sap_number() }"}

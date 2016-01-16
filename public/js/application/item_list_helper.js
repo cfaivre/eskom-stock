@@ -14,9 +14,9 @@ var ItemListHelper = function (data, config) {
     _viewModel.items.removeAll();
     var model = ko.mapping.fromJS(data);
     var mappedItems = ko.utils.arrayMap(data.items, function(item) {
-      return new Item(item.location, item.date, item.serial_number,
-                          item.rfid, item.purchase_order_number,
-                          item.sap_number);
+      return new Item(item.rfid, item.location, item.manufacture_date,
+                      item.expire_date, item.purchase_order_number,
+                      item.sap_number);
     });
     _viewModel.items( mappedItems );
 
@@ -31,11 +31,11 @@ var ItemListHelper = function (data, config) {
       return ko.mapping.toJSON(model, ignoreMapping);
   };
 
-  var Item = function(location, date, serial_number, rfid, purchase_order_number, sap_number) {
-      this.location = ko.observable(location);
-      this.date = ko.observable(date);
-      this.serial_number = ko.observable(serial_number);
+  var Item = function(rfid, location, manufacture_date, expire_date, purchase_order_number, sap_number) {
       this.rfid = ko.observable(rfid);
+      this.location = ko.observable(location);
+      this.manufacture_date = ko.observable(manufacture_date);
+      this.expire_date = ko.observable(expire_date);
       this.purchase_order_number = ko.observable(purchase_order_number);
       this.sap_number = ko.observable(sap_number);
   }
