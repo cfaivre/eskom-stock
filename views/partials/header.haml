@@ -39,7 +39,7 @@
         %form{:action => '/item_types', :method => 'get'}
           %li.sidebar-search
             .input-group.custom-search-form
-              %input#sap_number.form-control{:name=> 'sap_number', :placeholder => "SAP Number", :type => "text"}
+              %input#sap_number.form-control{:name=> 'sap_number', :placeholder => "Search SAP #", :type => "text"}
                 %span.input-group-btn
                   %button.btn.btn-default{:type => "submit"}
                     %i.fa.fa-search
@@ -47,12 +47,12 @@
         %li
           %a{:href => "/stock_takes"}
             %i.fa.fa-bar-chart
-            Stock Level Reports
-        %li
+            Stock Take Reports
+        -#%li
           %a{:href => "/item/arrival"}
             %i.fa.fa-arrow-circle-right
             Receive Stock
-        %li
+        -#%li
           %a{:href => "/item/departure"}
             %i.fa.fa-arrow-circle-left
             Issue Stock
@@ -74,7 +74,7 @@
         %li
           %a{:href => "/item_types"}
             %i.fa.fa-list
-            Materials
+            Products
         %li
           %a{:href => "/items"}
             %i.fa.fa-tags

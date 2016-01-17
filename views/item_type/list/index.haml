@@ -1,7 +1,7 @@
 #page-wrapper
   .row
     .col-lg-12
-      %h2.page-header Materials
+      %h2.page-header Products
     / /.col-lg-12
   / /.row
 
@@ -24,10 +24,10 @@
             %table#dataTables-example.table.table-striped.table-bordered.table-hover
               %thead
                 %tr
-                  %th Number
+                  %th SAP #
                   %th Type
                   %th Description
-                  %th Color
+                  -#%th Color
                   %th Image
                   -#%th Rating
                   -#%th Stats
@@ -38,7 +38,7 @@
                     %a{"data-bind" => "text: sap_number()"}
                   %td{"data-bind" => "text: material_type()"}
                   %td{"data-bind" => "text: description()"}
-                    %td{"data-bind" => "style: { 'background-color': color() }"}
+                  -#%td{"data-bind" => "style: { 'background-color': color() }"}
                   %td
                     %a.pop{href: '#'}
                       %img.item_type_thumbnail{"data-bind" => "click: $root.openImage, attr: {src: image()}"}

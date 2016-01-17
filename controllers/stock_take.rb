@@ -19,8 +19,8 @@ post '/stock_take/mail' do
   mail = Mail.new
   mail.to = to_email
   mail.from = 'reports@mshini.com'
-  mail.subject = 'Stock Level Report'
-  mail.body = "Please find the stock level report for #{params['date']} attached."
+  mail.subject = 'Stock Take Report'
+  mail.body = "Please find the stock take report for #{params['date']} attached."
   mail.add_file( File.join(File.dirname(__FILE__), "../public/pdfs/#{params['id']}.pdf") )
   #mail.attachments['myfile.pdf'] = File.read('path/to/myfile.pdf')
   response = mail.deliver!
