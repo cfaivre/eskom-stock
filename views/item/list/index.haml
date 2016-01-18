@@ -11,24 +11,27 @@
         / /.panel-heading
         .panel-body
           .dataTable_wrapper
-            %table#dataTables-example.table.table-striped.table-bordered.table-hover
-              %thead
-                %tr
-                  %th Serial Number
-                  %th Location
-                  %th Manufacture Date
-                  %th Expire Date
-                  %th PO Number
-                  %th SAP #
-              %tbody{"data-bind" => "foreach: items()"}
-                %tr.data-row{"data-toggle" => "context"}
-                  %td{"data-bind" => "text: rfid()"}
-                  %td{"data-bind" => "text: location()"}
-                  %td{"data-bind" => "text: manufacture_date()"}
-                  %td{"data-bind" => "text: expire_date()"}
-                  %td{"data-bind" => "text: purchase_order_number()"}
-                  %td
-                    %a{"data-bind" => "text: sap_number(), :attr: { 'href': '/items?sap_number=' + sap_number() }"}
+            #dataTables-example_wrapper.dataTables_wrapper.form-inline.dt-bootstrap.no-footer
+              .row
+                .col-sm--12
+                  %table#dataTables-example.table.table-striped.table-bordered.table-hover
+                    %thead
+                      %tr
+                        %th Serial Number
+                        %th Location
+                        %th Manufacture Date
+                        %th Expire Date
+                        %th PO Number
+                        %th SAP #
+                    %tbody
+              .row
+                .col-sm--6
+                .col-sm--6
+                  #dataTables-example_paginate.dataTables_paginate.paging_simple_numbers
+                    %ul.pagination
+                      %li#dataTables-example_previous.paginate_button.previous.disabled
+                      %li.paginate_button.active
+                      %li#dataTables-example_next.paginate_button.next.disabled
 
   / / main column 2
 / /hbox layout

@@ -7,6 +7,9 @@
     %title Eskom Stock Dashboard
 
     %link{:type => "text/css", :href => "/css/bootstrap.min.css", :rel => "stylesheet"}
+    %link{type: 'text/css', rel: 'stylesheet', href: '/css/dataTables.bootstrap.css'}
+    %link{:type => 'text/css', rel: 'stylesheet', href: '/css/jquery.dataTables.min.css'}
+    %link{:type => 'text/css', rel: 'stylesheet', href: '/bower_components/datatables-responsive/css/dataTables.responsive.css'}
     %link{:href => "/css/stock/sb-admin-2.css", :rel => "stylesheet"}
     %link{:type => "text/css", :href => "../bower_components/font-awesome/css/font-awesome.min.css", :rel => "stylesheet"}
 
@@ -20,8 +23,6 @@
     %script{:src => "/bower_components/bootstrap/dist/js/bootstrap.min.js"}
     / Metis Menu Plugin JavaScript
     %script{:src => "/bower_components/metisMenu/dist/metisMenu.min.js"}
-    / Custom Theme JavaScript
-    %script{:src => "/js/application/sb-admin-2.js"}
 
     -#%script{:src => "/js/jquery.min.js"}
     %script{:src => '/js/jquery.dataTables.min.js'}
@@ -36,6 +37,7 @@
     %script{:src => '/js/application/core.js'}
     %script{:src => '/js/application/infrastructure.js'}
 
+    %script{:src => "/js/application/sb-admin-2.js"}
   %body
 
     :javascript

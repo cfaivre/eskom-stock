@@ -23,29 +23,27 @@
           .dataTable_wrapper
             %table#dataTables-example.table.table-striped.table-bordered.table-hover
               %thead
-                %tr
-                  %th SAP #
-                  %th Type
-                  %th Description
-                  -#%th Color
-                  %th Image
-                  -#%th Rating
-                  -#%th Stats
-              %tbody{"data-bind" => "foreach: item_types()"}
-                %tr.data-row{"data-toggle" => "context"}
-                  %td
-                    -#%a{"data-bind" => "text: sap_number(), :attr: { 'href': '/items?sap_number=' + sap_number() }"}
-                    %a{"data-bind" => "text: sap_number()"}
-                  %td{"data-bind" => "text: material_type()"}
-                  %td{"data-bind" => "text: description()"}
-                  -#%td{"data-bind" => "style: { 'background-color': color() }"}
-                  %td
-                    %a.pop{href: '#'}
-                      %img.item_type_thumbnail{"data-bind" => "click: $root.openImage, attr: {src: image()}"}
-                  -#%td{"data-bind" => "text: rating()"}
-                  -#%td
-                    %a{href: '#'}
-                      .glyphicon.glyphicon-stats{"data-bind" => "click: $root.displayStats"}
+                -#%tr{"role"=>"row"}
+                %th SAP #
+                %th Type
+                %th Description
+                %th
+                -#%th Color
+                -#%th Image
+                -#%th Rating
+                -#%th Stats
+              %tbody
+                -#%tr{"role"=>"row"}
+                -#.data-row{"data-toggle" => "context"}
+                  -#%a{"data-bind" => "text: sap_number(), :attr: { 'href': '/items?sap_number=' + sap_number() }"}
+                -#%td{"data-bind" => "style: { 'background-color': color() }"}
+                -#%td
+                  %a.pop{href: '#'}
+                    %img.item_type_thumbnail{"data-bind" => "click: $root.openImage, attr: {src: image()}"}
+                -#%td{"data-bind" => "text: rating()"}
+                -#%td
+                  %a{href: '#'}
+                    .glyphicon.glyphicon-stats{"data-bind" => "click: $root.displayStats"}
 
 %script{src: '/js/application/item_type_list_helper.js'}
 :javascript

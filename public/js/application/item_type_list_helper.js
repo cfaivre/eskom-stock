@@ -19,6 +19,20 @@ var ItemTypeListHelper = function (data, config) {
     });
     _viewModel.item_types( mappedItemTypes );
 
+    $( data.item_types ).each(function( key, item_type ) {
+      $('#dataTables-example > tbody:last-child')
+        .append('<tr>' +
+                  '<td>' + item_type.sap_number + '</td>' +
+                  '<td>' + item_type.material_type + '</td>' +
+                  '<td>' + item_type.description + '</td>' +
+                  '<td><a href="#"><i class="fa fa-file-image-o"></i></a></td>' +
+                '</tr>');
+    });
+
+    $('#dataTables-example').dataTable({"autoWidth": false, "info":true, "lengthMenu": [10, 20,50],
+      "order": [[ 0, "desc" ]]
+    });
+
     _viewModel.openImage = function() {
       $('.imagepreview').attr( 'src', this.image() );
       $('#imagemodal').modal('show');

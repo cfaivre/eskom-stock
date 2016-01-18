@@ -6,11 +6,9 @@ var ItemListHelper = function (data, config) {
        _mapToJSON,
        _setup;
 
-
   _applyKoBindings = function () {
 
     _viewModel = ko.mapping.fromJS(data);
-
     _viewModel.items.removeAll();
     var model = ko.mapping.fromJS(data);
     var mappedItems = ko.utils.arrayMap(data.items, function(item) {
@@ -18,7 +16,29 @@ var ItemListHelper = function (data, config) {
                       item.expire_date, item.purchase_order_number,
                       item.sap_number);
     });
+
     _viewModel.items( mappedItems );
+
+    $( data.items ).each(function( key, item ) {
+      $('#dataTables-example > tbody:last-child')
+        .append('<tr>' +
+                  '<td>' + item.rfid + '</td>' +
+                  '<td>' + item.location + '</td>' +
+                  '<td>' + item.manufacture_date +
+                  '<td>' + item.expire_date +
+                  '<td>' + item.purchase_order_number +
+                  '<td>' + item.sap_number +
+                '</tr>');
+    });
+    $('#dataTables-example').dataTable({"autoWidth": false, "info":true, "lengthMenu": [10, 20,50],
+      "order": [[ 0, "desc" ]]
+    });
+/*    $('#dataTables-example').dataTable({"scrollY": 500,
+                "iDisplayLength": 10,
+                "scrollX": true,
+                "paging":   true,
+                "responsive": true,
+                "searching": true});*/
 
     ko.applyBindings(_viewModel, _currentContext[0]);
   };
