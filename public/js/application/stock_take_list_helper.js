@@ -23,7 +23,21 @@ var StockTakeListHelper = function (data, config) {
     var mappedStockTakes = ko.utils.arrayMap(data.stock_takes, function(stock_take) {
       return new StockTake(stock_take.created_at, stock_take._id, stock_take.stats);
     });
+
     _viewModel.stock_takes( mappedStockTakes );
+
+/*    $( data.stock_takes ).each(function( key, stock_take ) {
+      $('#dataTables-example > tbody:last-child')
+        .append('<tr>' +
+                  '<td>' + stock_take.id + '</td>' +
+                  '<td>' + stock_take.description + '</td>' +
+                  '<td>' + stock_take.quantity + '</td>' +
+                '</tr>');
+    });
+
+    $('#dataTables-example').dataTable({"autoWidth": false, "info":true, "lengthMenu": [10, 20,50],
+      "order": [[ 0, "desc" ]]
+    });*/
 
     _viewModel.displayStats = function( stats ) {
       $("#statsTable tbody").empty();

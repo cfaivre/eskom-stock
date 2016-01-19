@@ -16,10 +16,7 @@
                 %tr
                   %th Name
                   %th Code
-              %tbody{"data-bind" => "foreach: cncs()"}
-                %tr.data-row{"data-toggle" => "context"}
-                  %td{"data-bind" => "text: name()"}
-                  %td{"data-bind" => "text: code()"}
+              %tbody
 
 %script{src: '/js/application/cnc_list_helper.js'}
 :javascript

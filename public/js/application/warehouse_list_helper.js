@@ -18,6 +18,18 @@ var WarehouseListHelper = function (data, config) {
     });
     _viewModel.warehouses( mappedWarehouses );
 
+    $( data.warehouses ).each(function( key, warehouse ) {
+      $('#dataTables-example > tbody:last-child')
+        .append('<tr>' +
+                  '<td>' + warehouse.name + '</td>' +
+                  '<td>' + warehouse.code + '</td>' +
+                '</tr>');
+    });
+
+    $('#dataTables-example').dataTable({"autoWidth": false, "info":true, "lengthMenu": [10, 20,50],
+      "order": [[ 0, "desc" ]]
+    });
+
     ko.applyBindings(_viewModel, _currentContext[0]);
   };
 

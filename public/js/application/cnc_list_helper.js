@@ -18,6 +18,19 @@ var CncListHelper = function (data, config) {
     });
     _viewModel.cncs( mappedCncs );
 
+    $( data.cncs ).each(function( key, cnc ) {
+      $('#dataTables-example > tbody:last-child')
+        .append('<tr>' +
+                  '<td>' + cnc.name + '</td>' +
+                  '<td>' + cnc.code + '</td>' +
+                '</tr>');
+    });
+
+    $('#dataTables-example').dataTable({"autoWidth": false, "info":true, "lengthMenu": [10, 20,50],
+      "order": [[ 0, "desc" ]]
+    });
+
+
     ko.applyBindings(_viewModel, _currentContext[0]);
   };
 
