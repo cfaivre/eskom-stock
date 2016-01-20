@@ -7,7 +7,12 @@ class ItemListModel
   def load_items( filter )
     viewmodel = ItemListViewModel.new
     items = StockApiClient.new.get_items( filter )
-    items.sort_by! { |item| item["name"] } unless items.empty?
+    if !items.empty?
+      items.sort_by! { |item| item["name"] } unless items.empty?
+      items.each{|item|
+        item[:location].gsub!(/\w+/, &:capitalize)
+      }
+    end
     viewmodel.items = items
     viewmodel
   end
