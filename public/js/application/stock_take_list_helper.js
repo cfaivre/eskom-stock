@@ -49,7 +49,18 @@ var StockTakeListHelper = function (data, config) {
           url: "/item_type",
         }).done(function(result) {
           ko.utils.arrayMap(JSON.parse(result), function(item_type) {
-            $("#statsTable tbody").append("<tr><td>" + k + "</td><td>" + item_type.description + "</td><td>" +  v + "</td></tr>");
+            var warning_class = null;
+            if (v.expired)
+              warning_class = "danger";
+            else
+              warning_class = "";
+
+            $("#statsTable tbody").append("<tr class=" + warning_class + "><td>" + k + "</td><td>" + item_type.description + "</td>" +
+                                          "<td>" +  v.physical_count + "</td>" +
+                                          "<td>" + v.inventory_quantity + "</td>" +
+                                          "<td>" + Math.abs(v.physical_count - v.inventory_quantity) + "</td>" +
+                                          "<td>" + v.expired + "</td>" +
+                                          "</tr>");
           });
           $('#statsmodal').modal('show');
         });
@@ -97,7 +108,6 @@ console.log('hello');
   };
 
   $('#statsChartModal').on('shown.bs.modal', function (event) {
-console.log('blabla');
     var chart_data =
             [ { value: 2,
                 label: 2,

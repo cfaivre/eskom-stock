@@ -19,7 +19,10 @@
                 %tr
                   %th ID
                   %th Description
-                  %th Quantity
+                  %th Physical Count
+                  %th Inventory Quantity
+                  %th Discrepancy
+                  %th Expired?
               %tbody
 
   -##statsChartModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
@@ -48,6 +51,7 @@
                     -#%i.fa.fa-pie-chart{"data-bind" => "click: function() { $root.displayStatsChart( stats() ); }"}
                     %a{ href: '', "data-bind" => "click: function() { $root.emailStats( _id(), created_at() ); }"} EMAIL&nbsp;&nbsp;
                     %a{ rel: "nofollow", "data-bind"=> ":attr: { 'target': '_blank', 'href': '/pdfs/'+ _id() + '.pdf' }"} PDF
+                    %a{ rel: "nofollow", "data-bind"=> ":attr: { 'target': '_blank', 'href': '/stock_take/'+ _id() + '/csv' }"}CSV
                     -#%a{ href: '' }
                       %i.fa.fa-envelope{"data-bind" => "click: function() { $root.emailStats( _id(), created_at() ); }"}
                     -#%a{ rel: "nofollow", "data-bind"=> ":attr: { 'target': '_blank', 'href': '/pdfs/'+ _id() + '.pdf' }"}

@@ -10,6 +10,16 @@ get '/stock_takes' do
   haml :'stock_take/list/index'
 end
 
+
+get '/stock_take/:id/csv' do
+  authenticate!
+  env['api.format'] = :binary
+  content_type 'text/csv'
+  attachment "stock_take.csv"
+  ActiveRecord::Base.include_root_in_json = false
+  StockTakeListModel.new.generate_csv(params['id'])
+end
+
 post '/stock_take/mail' do
   to_email ||= YAML.load_file(File.join(__dir__, '../config/email.yml'))[ session[:user].name ]
   raise "Error sending mail! Invalid email address #{to_email} ." if to_email.blank?
