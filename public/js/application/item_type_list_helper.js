@@ -15,7 +15,7 @@ var ItemTypeListHelper = function (data, config) {
     var model = ko.mapping.fromJS(data);
     var mappedItemTypes = ko.utils.arrayMap(data.item_types, function(item_type) {
       return new ItemType(item_type.sap_number, item_type.material_type, item_type.description,
-                          item_type.image, item_type.rating, item_type.color);
+                          item_type.image, item_type.rating, item_type.inventory_quantity);
     });
     _viewModel.item_types( mappedItemTypes );
 
@@ -25,6 +25,7 @@ var ItemTypeListHelper = function (data, config) {
                   '<td>' + item_type.sap_number + '</td>' +
                   '<td>' + item_type.material_type + '</td>' +
                   '<td>' + item_type.description + '</td>' +
+                  '<td>' + item_type.inventory_quantity + '</td>' +
                   '<td><a href="#"><i class="fa fa-file-image-o"></i></a></td>' +
                 '</tr>');
     });
@@ -53,13 +54,14 @@ var ItemTypeListHelper = function (data, config) {
       return ko.mapping.toJSON(model, ignoreMapping);
   };
 
-  var ItemType = function(sap_number, material_type, description, image, rating, color) {
+  var ItemType = function(sap_number, material_type, description, image, rating, color, inventory_quantity) {
       this.sap_number = ko.observable(sap_number);
       this.material_type = ko.observable(material_type);
       this.description = ko.observable(description);
       this.image = ko.observable(image);
       this.rating = ko.observable(rating);
       this.color = ko.observable(color);
+      this.inventory_quantity = ko.observable(inventory_quantity);
   }
 
   _setup = function() {

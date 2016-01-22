@@ -11,6 +11,8 @@ class ItemTypeListModel
       item_types.sort_by! { |item_type| item_type[:sap_number] }
       item_types.each{|item_type|
         item_type[:material_type].gsub!(/\w+/, &:capitalize)
+        items_count = StockApiClient.new.get_items( { sap_number: item_type[:sap_number]} ).count
+        item_type.merge!({ inventory_quantity: items_count })
       }
     end
     viewmodel.item_types = item_types
