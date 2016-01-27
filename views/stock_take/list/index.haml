@@ -43,8 +43,11 @@
         .panel-body
           .dataTable_wrapper
             %table#dataTables-example.table.table-striped.table-bordered.table-hover
-              %tbody{"data-bind" => "foreach: stock_takes()"}
-                %tr.data-row{"data-toggle" => "context"}
+              %thead
+                %th Date
+                %th Functions
+              %tbody
+                -#%tr.data-row{"data-toggle" => "context"}
                   %td
                     %a{"data-bind" => "text: created_at(), click: function() { $root.displayStats( stats() ); }"}
                   %td
