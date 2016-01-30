@@ -5,14 +5,14 @@
     / /.col-lg-12
   / /.row
 
-  #imagemodal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
-    .modal-dialog{"data-dismiss" => "modal"}
+  #imagemodal.imagemodal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+    .modal-dialog.modal-lg{"data-dismiss" => "modal"}
       .modal-content
         .modal-body
-        %button.close{"data-dismiss" => "modal", :type => "button"}
-          %span{"aria-hidden" => "true"} &times;
-          %span.sr-only Close
-        %img.imagepreview{:src => "", :style => "width: 100%;"}
+          %button.close{"data-dismiss" => "modal", :type => "button"}
+            %span{"aria-hidden" => "true"} &times;
+            %span.sr-only Close
+          %img.img-responsive.imagepreview{:src => ""}
 
   .row
     .col-lg-12

@@ -26,7 +26,7 @@ var ItemTypeListHelper = function (data, config) {
                   '<td>' + item_type.material_type + '</td>' +
                   '<td>' + item_type.description + '</td>' +
                   '<td>' + item_type.inventory_quantity + '</td>' +
-                  '<td><a href="#"><i class="fa fa-file-image-o"></i></a></td>' +
+                  '<td><a href="#"><i data-image="' + item_type.image + '" class="fa fa-file-image-o"></i></a></td>' +
                 '</tr>');
     });
 
@@ -45,6 +45,11 @@ var ItemTypeListHelper = function (data, config) {
 
     ko.applyBindings(_viewModel, _currentContext[0]);
   };
+
+  $(document).on('click', '.fa-file-image-o', function() {
+    $('.imagepreview').attr( 'src', $(this).attr('data-image') );
+    $('#imagemodal').modal('show');
+  });
 
   _mapToJSON = function (model) {
       var ignoreMapping;

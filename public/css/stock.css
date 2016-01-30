@@ -52,4 +52,16 @@
 .red {
   background: red;
 }
-
+.modal-body {
+    position:relative; /* This avoids whatever it's absolute inside of it to go off the container */
+    height: 700px; /* let's imagine that your login box height is 250px . This height needs to be added, otherwise .img-responsive will be like "Oh no, I need to be vertically aligned?! but from which value I need to be aligned??" */
+}
+.img-responsive {
+    width:470px; /* This value will depend on what size you want for your loading image, let's say it's 50px */
+    height: 600px;
+    position:absolute;
+    left:25%;
+    top:10%;
+    margin-top:-25px; /* This needs to be half of the height */
+    margin-left:-25px; /* This needs to be half of the width */
+}
