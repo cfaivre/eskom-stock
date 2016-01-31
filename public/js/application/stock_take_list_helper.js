@@ -21,15 +21,19 @@ var StockTakeListHelper = function (data, config) {
     _viewModel.stock_takes.removeAll();
     var model = ko.mapping.fromJS(data);
     var mappedStockTakes = ko.utils.arrayMap(data.stock_takes, function(stock_take) {
-      return new StockTake(stock_take.created_at, stock_take._id, stock_take.stats);
+      return new StockTake(stock_take.created_at, stock_take._id, stock_take.stats, stock_take.device_id, stock_take.location);
     });
 
     _viewModel.stock_takes( mappedStockTakes );
 
     $( data.stock_takes ).each(function( key, stock_take ) {
+      var date_split = stock_take.created_at.split(" ");
       $('#dataTables-example > tbody:last-child')
         .append('<tr>' +
-                  '<td class="created_at" data-stock_take_id="' + stock_take._id + '"><a>' + stock_take.created_at + '</a></td>' +
+                  '<td class="stock_take_capitalize created_at" data-stock_take_id="' + stock_take._id + '"><a>' + date_split[0] + '</a> | ' +
+                  '<a>' + date_split[1] + '</a> | ' +
+                  '<a>' + stock_take.location + '</a> | ' +
+                  '<a>' + stock_take.device_id + '</a> | </td>' +
                   '<td>' +
                     '<a href="" rel="nofollow" class="email" data-stock_take_id="' + stock_take._id + '" data-created_at="' + stock_take.created_at + '"</a>EMAIL&nbsp;&nbsp;' +
                     '<a href="/pdfs/' + stock_take._id + '.pdf" rel="nofollow" target="_blank">PDF&nbsp;&nbsp;</a>' +
@@ -197,10 +201,12 @@ var StockTakeListHelper = function (data, config) {
     return ko.mapping.toJSON(model, ignoreMapping);
   };
 
-  var StockTake = function(created_at, _id, stats) {
+  var StockTake = function(created_at, _id, stats, device_id, location) {
     this.created_at = ko.observable(created_at);
     this._id = ko.observable(_id);
     this.stats = ko.observable(stats);
+    this.device_id = ko.observable(device_id);
+    this.location = ko.observable(location);
   }
 
   _setup = function() {

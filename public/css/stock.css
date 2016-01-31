@@ -65,3 +65,6 @@
     margin-top:-25px; /* This needs to be half of the height */
     margin-left:-25px; /* This needs to be half of the width */
 }
+.stock_take_capitalize {
+  text-transform: capitalize;
+}

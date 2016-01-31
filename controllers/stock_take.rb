@@ -13,7 +13,7 @@ end
 get '/stock_take/:id' do
   authenticate!
   ActiveRecord::Base.include_root_in_json = false
-  JSON.parse(StockApiClient.new.get_stock_takes({_id: params['id']}))[0]
+  StockApiClient.new.get_stock_takes({_id: params['id']}).to_json
 end
 
 get '/stock_take/:id/csv' do
