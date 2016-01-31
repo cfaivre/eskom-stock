@@ -35,9 +35,9 @@ var StockTakeListHelper = function (data, config) {
                   '<a>' + stock_take.location + '</a> | ' +
                   '<a>' + stock_take.device_id + '</a> | </td>' +
                   '<td>' +
-                    '<a href="" rel="nofollow" class="email" data-stock_take_id="' + stock_take._id + '" data-created_at="' + stock_take.created_at + '"</a>EMAIL&nbsp;&nbsp;' +
-                    '<a href="/pdfs/' + stock_take._id + '.pdf" rel="nofollow" target="_blank">PDF&nbsp;&nbsp;</a>' +
-                    '<a href="/stock_take/' + stock_take._id + '/csv" rel="nofollow" target="_blank">CSV&nbsp;&nbsp;</a>' +
+                    '<a href="" rel="nofollow" class="email" data-stock_take_id="' + stock_take._id + '" data-created_at="' + stock_take.created_at + '"</a>EMAIL&nbsp;|&nbsp;' +
+                    '<a href="/pdfs/' + stock_take._id + '.pdf" rel="nofollow" target="_blank">PDF&nbsp;|&nbsp;</a>' +
+                    '<a href="/stock_take/' + stock_take._id + '/csv" rel="nofollow" target="_blank">CSV</a>' +
                   '</td>' +
                 '</tr>');
     });
