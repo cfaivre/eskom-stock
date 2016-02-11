@@ -25,8 +25,8 @@ class StockTakeListModel
 
   def generate_pdf( id, date, stats )
     require "prawn/table"
-    pdf = Prawn::Document.new
-    pdf.text( "Stock Level Report: #{Time.parse( date.to_s ).strftime('%Y/%m/%d %H:%M')}" )
+    pdf = Prawn::Document.new(:page_size => "A4", :page_layout => :landscape)
+    pdf.text( "Stock Take Report: #{Time.parse( date.to_s ).strftime('%Y/%m/%d %H:%M')}" )
     contents = [ [ { content: 'SAP #'},
                    { content: 'Description'},
                    { content: 'Physical Count'},

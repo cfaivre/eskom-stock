@@ -25,7 +25,7 @@ var ItemTypeListHelper = function (data, config) {
                   '<td>' + item_type.sap_number + '</td>' +
                   '<td>' + item_type.material_type + '</td>' +
                   '<td>' + item_type.description + '</td>' +
-                  '<td>' + item_type.inventory_quantity + '</td>' +
+                  '<td class="item_type" data-sap_number="' + item_type.sap_number + '">' + item_type.inventory_quantity + '</td>' +
                   '<td><a href="#"><i data-image="' + item_type.image + '" class="fa fa-file-image-o"></i></a></td>' +
                 '</tr>');
     });
@@ -49,6 +49,31 @@ var ItemTypeListHelper = function (data, config) {
   $(document).on('click', '.fa-file-image-o', function() {
     $('.imagepreview').attr( 'src', $(this).attr('data-image') );
     $('#imagemodal').modal('show');
+  });
+
+  $(document).on('click', '.item_type', function() {
+    $('#locationTable').find('tr:gt(0)').remove();
+    $.ajax({
+      type: "GET",
+      data: "sap_number=" + $(this).attr('data-sap_number'),
+      url: "/items-per-location",
+    }).done(function(result) {
+      ko.utils.arrayMap(JSON.parse(result), function(item_per_location) {
+      $('#locationTable > tbody:last-child')
+        .append('<tr>' +
+                  '<td class="stock_take_capitalize">' + item_per_location.location + '</td>' +
+                  '<td>' + item_per_location.quantity + '</td>' +
+                '</tr>');
+     /*   $("#statsTable tbody").append("<tr class=" + warning_class + "><td>" + k + "</td><td>" + item_type.description + "</td>" +
+                                      "<td>" +  v.physical_count + "</td>" +
+                                      "<td>" + v.inventory_quantity + "</td>" +
+                                      "<td>" + Math.abs(v.physical_count - v.inventory_quantity) + "</td>" +
+                                      "<td>" + v.expired + "</td>" +
+                                      "</tr>");
+   */   });
+      $('#locationmodal').modal('show');
+    });
+
   });
 
   _mapToJSON = function (model) {

@@ -25,6 +25,10 @@ class StockApiClient
     @connection.get('/api/items', params )
   end
 
+  def get_items_per_location(params={})
+    @connection.get('/api/items-per-location', params )
+  end
+
   def get_item_types( params={} )
     @connection.get('/api/item-types', params )
   end

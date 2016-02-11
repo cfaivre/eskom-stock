@@ -42,6 +42,12 @@ post "/items/locations" ,:provides => :json  do
   @data = viewmodel.to_json
 end
 
+get "/items-per-location" do
+  result = StockApiClient.new.get_items_per_location(sap_number: params['sap_number'])
+  result.sort_by{ |k| k[:quantity]}
+  result.to_json
+end
+
 post "/items/in-transit" ,:provides => :json  do
   authenticate!
   ActiveRecord::Base.include_root_in_json = false
