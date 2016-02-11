@@ -25,7 +25,7 @@ var ItemTypeListHelper = function (data, config) {
                   '<td>' + item_type.sap_number + '</td>' +
                   '<td>' + item_type.material_type + '</td>' +
                   '<td>' + item_type.description + '</td>' +
-                  '<td class="item_type" data-sap_number="' + item_type.sap_number + '">' + item_type.inventory_quantity + '</td>' +
+                  '<td class="item_type" data-sap_number="' + item_type.sap_number + '"><a href="#">' + item_type.inventory_quantity + '</a></td>' +
                   '<td><a href="#"><i data-image="' + item_type.image + '" class="fa fa-file-image-o"></i></a></td>' +
                 '</tr>');
     });
