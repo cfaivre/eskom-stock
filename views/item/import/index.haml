@@ -1,0 +1,20 @@
+#page-wrapper
+  .row
+    .col-lg-12
+      %h2.page-header Import Stock
+  .row
+    .col-lg-12
+      .panel.panel-default
+        .panel-heading
+          %h3.panel-title
+        .panel-body
+          %form{:action=>"/item/import",:method=>"post", :enctype=>"multipart/form-data"}
+            %fieldset
+              .form-group
+                %input{:type=>"file",:name=>"file", :id=>"file"}
+              .form-group
+                .checkbox
+                  %label
+                    %input{:id=>"overwrite", :type=>"checkbox",:name=>"overwrite"}Overwrite existing data?
+              .form-group
+                %input{:type=>"submit",:value=>"Import"}

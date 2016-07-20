@@ -100,3 +100,22 @@ post "/items/details", :provides => :json do
   rfids = ActiveSupport::JSON.decode request.body.read
   ItemModel.new.details( rfids ).to_json
 end
+
+get "/item/import" do
+  haml :'item/import/index'
+end
+
+post "/item/import" do
+  filename = params[:file][:filename]
+  tempfile = params[:file][:tempfile]
+  target = "public/files/#{filename}"
+  overwrite = true if params['overwrite'] == 'on'
+  File.open(target, 'wb') {|f| f.write tempfile.read }
+  begin
+    ItemImportModel.new.import( filename, tempfile, target, overwrite )
+    flash[:notice] = 'Products imported'
+  rescue
+    flash[:notice] = 'Error importing products'
+  end
+  redirect '/items'
+end
