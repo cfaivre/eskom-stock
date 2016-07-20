@@ -25,12 +25,24 @@ class StockApiClient
     @connection.get('/api/items', params )
   end
 
+  def get_issued_items( params={} )
+    @connection.get('/api/items/issued', params )
+  end
+
+  def get_non_issued_items( params={} )
+    @connection.get('/api/items/non-issued', params )
+  end
+
   def get_items_per_location(params={})
     @connection.get('/api/items-per-location', params )
   end
 
   def get_item_types( params={} )
     @connection.get('/api/item-types', params )
+  end
+
+  def import_item_types( data )
+    @connection.post('/api/item-type/import', data.to_json )
   end
 
   def get_stock_takes(params={} )

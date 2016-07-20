@@ -6,4 +6,4 @@ development:
 staging:
   uri: 'http://eskom-api.staging.mshini.com'
 production:
-  uri: 'http://eskom-api.mshini.com'
+  uri: 'http://eskom-api.smartstock.io'

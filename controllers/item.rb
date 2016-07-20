@@ -9,6 +9,24 @@ get "/items" do
   haml :'item/list/index'
 end
 
+get "/items/non-issued" do
+  authenticate!
+  ActiveRecord::Base.include_root_in_json = false
+  viewmodel = ItemListModel.new.load_non_issued_items( params )
+  @data = viewmodel.to_json
+  @page_header = 'Stock'
+  haml :'item/list/index'
+end
+
+get "/items/issued" do
+  authenticate!
+  ActiveRecord::Base.include_root_in_json = false
+  viewmodel = ItemListModel.new.load_issued_items( params )
+  @data = viewmodel.to_json
+  @page_header = 'Issued Stock'
+  haml :'item/list/index'
+end
+
 # Item Arrivals
 #####################################
 get "/item/arrival" do

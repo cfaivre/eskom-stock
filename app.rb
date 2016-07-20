@@ -1,5 +1,7 @@
 # encoding: utf-8
+require 'csv'
 require 'haml'
+#require 'iconv'
 require 'sinatra'
 require 'sinatra/flash'
 require 'syslog'
